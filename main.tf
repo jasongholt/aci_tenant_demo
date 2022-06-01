@@ -15,9 +15,9 @@ terraform {
 #the file, but variablized or using TFC for credentials protection. 
 
 provider "aci" {
-  username = "var.apic_user"
-  password = "var.apic_password"
-  url      = "var.apic_url"
+  username = "admin"
+  password = "!v3G@!4@Y"
+  url      = "https://sandboxapicdc.cisco.com"
   insecure = true
 }
 
