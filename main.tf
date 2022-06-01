@@ -51,7 +51,7 @@ module "my_app_profile" {
 #via bd, and the ip of the bridge domain via ip.
 
 module "my_bridgedomain_app" {
-  source    = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/bridge_domain"
+  source    = "github.com/jasongholt/aci_tenant_demo/modules/bridge_domain"
   bd        = "pod01_app"
   ip        = "5.1.1.1/24"
   tenant_id = module.my_tenant.tenant_id
