@@ -25,7 +25,7 @@ provider "aci" {
 #netrowking elements.  In the tenant line, you can replace with your required naming
 
 module "my_tenant" {
-  source = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/tenant
+  source = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/tenant"
   tenant = "banking_app"
 }
 
@@ -33,7 +33,7 @@ module "my_tenant" {
 #naming in the vrf = line.
 
 module "my_vrf" {
-  source    = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/vrf
+  source    = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/vrf"
   vrf       = "vrf_prod_1"
   tenant_id = module.my_tenant.tenant_id
 }
@@ -42,7 +42,7 @@ module "my_vrf" {
 #for your application
 
 module "my_app_profile" {
-  source    = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/app_profile
+  source    = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/app_profile"
   tenant_id = module.my_tenant.tenant_id
 }
 
@@ -51,7 +51,7 @@ module "my_app_profile" {
 #via bd, and the ip of the bridge domain via ip.
 
 module "my_bridgedomain_app" {
-  source    = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/bridge_domain
+  source    = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/bridge_domain"
   bd        = "pod01_app"
   ip        = "5.1.1.1/24"
   tenant_id = module.my_tenant.tenant_id
@@ -63,21 +63,21 @@ module "my_bridgedomain_app" {
 #blocks.  Here we demonstrate a three tier app. 
 
 module "my_epg_web" {
-  source   = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/endpoint_group
+  source   = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/endpoint_group"
   epg_name = "epg_web"
   bd_id    = module.my_bridgedomain_app.bd_id
   app_id   = module.my_app_profile.app_id
 }
 
 module "my_epg_app" {
-  source   = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/endpoint_group
+  source   = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/endpoint_group"
   epg_name = "epg_app"
   bd_id    = module.my_bridgedomain_app.bd_id
   app_id   = module.my_app_profile.app_id
 }
 
 module "my_epg_db" {
-  source   = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/endpoint_group
+  source   = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/endpoint_group"
   epg_name = "epg_db"
   bd_id    = module.my_bridgedomain_app.bd_id
   app_id   = module.my_app_profile.app_id
@@ -87,7 +87,7 @@ module "my_epg_db" {
 #contracts.  We are using a list of rules, you can expand or subtract rules to meet your needs. 
 
 module "my_filters" {
-  source    = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/filters
+  source    = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/filters"
   tenant_id = module.my_tenant.tenant_id
   filters_entry = {
     filter_https = {
@@ -116,7 +116,7 @@ module "my_filters" {
 #the contracts.  This is a list as well, and can be edited to meet your needs.
 
 module "my_contracts" {
-  source                       = https://github.com/jasongholt/aci_tenant_demo/tree/main/modules/contracts
+  source                       = "github.com/jasongholt/aci_tenant_demo/tree/main/modules/contracts"
   tenant_id                    = module.my_tenant.tenant_id
   relation_vz_rs_subj_filt_att = module.my_filters.filter_dn
   contract = {
