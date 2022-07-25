@@ -137,8 +137,8 @@ module "my_contracts" {
     }
   }
 
-The second part of this module block defines the behavior of the EPG's.  This is also a list and 
-can be edited based on your needs.  
+#The second part of this module block defines the behavior of the EPG's.  This is also a list and 
+#can be edited based on your needs.  
 
 epg_to_contract = {
     terraform_one = {
