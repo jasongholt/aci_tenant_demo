@@ -137,35 +137,35 @@ module "my_contracts" {
     }
   }
 
-#The second part of this module block defines the behavior of the EPG's.  This is also a list and 
-#can be edited based on your needs.  
+The second part of this module block defines the behavior of the EPG's.  This is also a list and 
+can be edited based on your needs.  
 
-# epg_to_contract = {
-#     terraform_one = {
-#           epg           = module.my_epg_web.epg_dn,
-#           contract      = "contract_app",
-#           contract_type = "consumer" 
-#         },
-#     terraform_two = {
-#           epg           = module.my_epg_db.epg_dn,
-#           contract      = "contract_db",
-#           contract_type = "provider" 
-#     },
-#     terraform_three = {
-#           epg           = module.my_epg_web.epg_dn,
-#           contract      = "contract_web",
-#           contract_type = "provider" 
-#     },
-#     terraform_four = {
-#           epg           = module.my_epg_app.epg_dn,
-#           contract      = "contract_app",
-#           contract_type = "provider" 
-#     },
-#     terraform_five = {
-#           epg           = module.my_epg_app.epg_dn,
-#           contract      = "contract_db",
-#           contract_type = "consumer" 
-#     }
-# }
+epg_to_contract = {
+    terraform_one = {
+          epg           = module.my_epg_web.epg_dn,
+          contract      = "contract_app",
+          contract_type = "consumer" 
+        },
+    terraform_two = {
+          epg           = module.my_epg_db.epg_dn,
+          contract      = "contract_db",
+          contract_type = "provider" 
+    },
+    terraform_three = {
+          epg           = module.my_epg_web.epg_dn,
+          contract      = "contract_web",
+          contract_type = "provider" 
+    },
+    terraform_four = {
+          epg           = module.my_epg_app.epg_dn,
+          contract      = "contract_app",
+          contract_type = "provider" 
+    },
+    terraform_five = {
+          epg           = module.my_epg_app.epg_dn,
+          contract      = "contract_db",
+          contract_type = "consumer" 
+    }
+}
 }
 
