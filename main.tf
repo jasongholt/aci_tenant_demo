@@ -26,7 +26,7 @@ provider "aci" {
 
 module "my_tenant" {
   source = "github.com/jasongholt/aci_tenant_demo/modules/tenant"
-  tenant = "banking_app"
+  tenant = "banking_app2"
 }
 
 #The following module creates the VRF inside of the tenant.  You can customize the
